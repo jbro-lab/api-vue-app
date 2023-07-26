@@ -1,5 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <p>This is Vue App where you can discover your
+      IP address and geolocation data</p>
   </div>
 </template>
