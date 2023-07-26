@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h3>{{msg}}</h3>
-    <p v-if="ipGeo">
+    <p v-if="ipGeo && !loading">
      <span v-if="ipGeo.city">{{ipGeo.city}}, </span>
      <span v-if="ipGeo.regionName">{{ipGeo.regionName + ' '}} </span>
      <span v-if="ipGeo.zip">{{ipGeo.zip + ' '}} </span>
@@ -12,6 +12,7 @@
      <span v-if="ipGeo.ip">ip: {{ipGeo.ip}}</span>
      <span></span>
     </p>
+    <p v-if="!ipGeo && !loading">Make sure you don't have anything blocking network tracking</p>
   </div>
 </template>
 
@@ -26,13 +27,16 @@ export default defineComponent({
   setup() {
     const ip = ref('');
     const ipGeo = ref();
+    const loading = ref(false);
     onMounted(async () => {
+      loading.value = true;
       ip.value = await fetch('https://api.ipify.org?format=json')
         .then((response) => response.json())
         .then((response) => response.ip);
       ipGeo.value = await fetch(`https://api.techniknews.net/ipgeo/${ip.value}`)
         .then((response) => response.json())
         .then((response) => response);
+      loading.value = false;
     });
     return { ipGeo };
   },
