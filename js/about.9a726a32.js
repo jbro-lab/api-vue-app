@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkapi_vue_app"]=self["webpackChunkapi_vue_app"]||[]).push([[443],{405:function(a,e,n){n.r(e),n.d(e,{default:function(){return d}});var u=n(252);const r={class:"about"},s=(0,u._)("p",null,"This is Vue App where you can discover your IP address and geolocation data",-1),t=[s];function c(a,e){return(0,u.wg)(),(0,u.iD)("div",r,t)}var i=n(744);const o={},p=(0,i.Z)(o,[["render",c]]);var d=p}}]);
+//# sourceMappingURL=about.9a726a32.js.map
